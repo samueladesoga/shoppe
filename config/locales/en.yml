@@ -686,6 +686,13 @@ en:
       no_localisations: No localisations to display.
       delete_confirmation: Are you sure?
 
+    car_details:
+      make: Make
+      model: Model
+      year_of_manufacture: Year of Manufacture
+      mileage: Mileage
+      fuel: Fuel
+
     customers:
       customers: Customers
       new_customer: New customer
@@ -700,6 +707,7 @@ en:
       first_or_last_name: First or last name
       back_to_customers_list: Back to customer list
       new_address: New address
+      new_car_detail: New car detail
       edit: Edit
       customer_information: Customer Information
       cancel: Cancel
@@ -716,6 +724,8 @@ en:
       no_addresses: No addresses to display.
       addresses: Addresses
       adresse: Address
+      car_details: Car Details
+      no_car_details: No Car Details to display
       created_successfully: Customer has been created successfully.
       updated_successfully: Customer has been updated successfully.
       deleted_successfully: Customer has been deleted successfully.

@@ -9,5 +9,7 @@ module Shoppe
     # @return [Shoppe::Customer]
     belongs_to :customer, class_name: "Shoppe::Customer"
 
+    scope :ordered, -> { order(id: :desc)}
+
   end
 end

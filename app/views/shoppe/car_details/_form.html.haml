@@ -1,0 +1,27 @@
+= form_for @car_detail, url: [@customer, @car_detail] do |f|
+  = f.error_messages
+
+  = field_set_tag "Car Details" do
+    .splitContainer
+      %dl.third
+        %dt= f.label :make
+        %dd= f.text_field :make, :class => "text"
+      %dl.third
+        %dt= f.label :model
+        %dd= f.text_field :model, :class => "text"
+      %dl.third
+        %dt= f.label :year_of_manufacture
+        %dd= f.text_field :year_of_manufacture, :class => "text"
+    .splitContainer
+      %dl.third
+        %dt= f.label :mileage
+        %dd= f.text_field :mileage, :class => "text"
+      %dl.third
+        %dt= f.label :fuel
+        %dd= f.text_field :fuel, :class => "text"
+
+  %p.submit
+    - unless @car_detail.new_record?
+      %span.right= link_to t('shoppe.delete'), [@customer, @car_detail], :class => 'button purple', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this car detail?"}
+    = f.submit :class => 'button green', data: {disable_with: (@car_detail.new_record? ? "Creating car detail..." : "Updating Car Detail...")}
+    = link_to t('shoppe.cancel'), :customers, :class => 'button'
