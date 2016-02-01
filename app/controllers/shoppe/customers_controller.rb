@@ -15,6 +15,7 @@ module Shoppe
     def show
       @addresses = @customer.addresses.ordered.load
       @orders = @customer.orders.ordered.load
+      @car_details = @customer.car_details.ordered.load
     end
 
     def create

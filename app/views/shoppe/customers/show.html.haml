@@ -2,6 +2,7 @@
 = content_for :header do
   %p.buttons
     = link_to t('shoppe.customers.new_address'), [:new, @customer, :address], class: "button"
+    = link_to t('shoppe.customers.new_car_detail'), [:new, @customer, :car_detail], class: "button"
     = link_to t('shoppe.customers.edit'), [:edit, @customer], class: "button"
   %h2.users= t('shoppe.customers.customers') + "- #{@customer.name}"
 
@@ -24,6 +25,9 @@
 
   = field_set_tag t('shoppe.customers.addresses'), :class => 'padded' do
     = render "addresses"
+
+  = field_set_tag t('shoppe.customers.car_details'), :class => 'padded' do
+    = render "car_details"
 
   = field_set_tag t('shoppe.orders.orders'), :class => 'padded' do
     .table

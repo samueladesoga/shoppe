@@ -5,6 +5,7 @@ Shoppe::Engine.routes.draw do
   resources :customers do
     post :search, :on => :collection
     resources :addresses
+    resources :car_details
   end
   
   resources :product_categories do

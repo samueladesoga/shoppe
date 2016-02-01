@@ -1,0 +1,24 @@
+.addresses
+  .table
+    %table.data
+      %thead
+        %tr
+          %th= t('shoppe.car_details.make')
+          %th= t('shoppe.car_details.model')
+          %th= t('shoppe.car_details.year_of_manufacture')
+          %th= t('shoppe.car_details.mileage')
+          %th= t('shoppe.car_details.fuel')
+          %th
+      %tbody
+        - if @car_details.empty?
+          %tr.empty
+            %td{:colspan => 6}= t('shoppe.customers.no_car_details')
+        - else
+          - for car_detail in @car_details
+            %tr
+              %td= car_detail.make
+              %td= car_detail.model
+              %td= car_detail.year_of_manufacture
+              %td= car_detail.mileage
+              %td= car_detail.fuel
+              %td= link_to t('shoppe.customers.edit'), edit_customer_car_detail_path(@customer, car_detail)
