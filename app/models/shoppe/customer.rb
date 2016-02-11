@@ -14,7 +14,7 @@ module Shoppe
 
     # Validations
     validates :email, presence: true, uniqueness: true, format: { with: EMAIL_REGEX}
-    validates :phone, presence: true, format: { with: PHONE_REGEX }
+    #validates :phone, presence: true, format: { with: PHONE_REGEX }
 
     # All customers ordered by their ID desending
     scope :ordered, -> { order(id: :desc)}
