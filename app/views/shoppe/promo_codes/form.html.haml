@@ -1,0 +1,27 @@
+- @page_title = t('shoppe.promo_codes.promo_codes')
+= content_for :header do
+  %p.buttons= link_to t('shoppe.promo_codes.back_to_promo_codes'), :promo_codes, :class => 'button grey'
+  %h2.promk_codes= t('shoppe.promo_codes.promo_codes')
+
+= form_for @promo_code do |f|
+  = f.error_messages
+  = field_set_tag t('shoppe.promo_codes.promo_codes') do
+    .splitContainer
+      %dl.quarter
+        %dt= f.label :name, t('shoppe.promo_codes.name')
+        %dd= f.text_field :name, :class => "text focus"
+      %dl.quarter
+        %dt= f.label :percentage_discount, t('shoppe.promo_codes.percentage_discount')
+        %dd= f.text_field :percentage_discount, :class => "text"
+      %dl.quarter
+        %dt= f.label :expired_date, t('shoppe.promo_codes.expired_date')
+        %dd= f.text_field :expired_date, :class => "text"
+      %dl.quarter
+        %dt= f.label :status, t('shoppe.promo_codes.status')
+        = f.select :status, Shoppe::PromoCode::STATUS, {}, :class => 'chosen'
+
+  %p.submit
+    - unless @promo_code.new_record?
+      %span.right= link_to t('shoppe.delete'), @promo_code, :class => 'button purple', :method => :delete, :data => {:confirm => t('shoppe.promo_codes.delete_confirmation') }
+    = f.submit t('shoppe.submit'), :class => 'button green'
+    = link_to t('shoppe.cancel'), :promo_codes, :class => 'button'
