@@ -1,0 +1,23 @@
+- @page_title = t('shoppe.promo_codes.promo_codes')
+
+= content_for :header do
+  %p.buttons= link_to t('shoppe.promo_codes.new_promo_code'), :new_promo_code, :class => 'button green'
+  %h2.tax_rates= t('shoppe.promo_codes.promo_codes')
+
+.table
+  %table.data
+    %thead
+      %tr
+        %th= t('shoppe.promo_codes.name')
+        %th= t('shoppe.promo_codes.promo_code')
+        %th= t('shoppe.promo_codes.percentage_discount')
+        %th= t('shoppe.promo_codes.expired_date')
+        %th= t('shoppe.promo_codes.status')
+    %tbody
+      - for promo_code in @promo_codes
+        %tr
+          %td= link_to promo_code.name, [:edit, promo_code]
+          %td= promo_code.promo_code
+          %td= promo_code.percentage_discount
+          %td= promo_code.expired_date
+          %td= promo_code.status

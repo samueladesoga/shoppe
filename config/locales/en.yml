@@ -37,6 +37,9 @@ en:
       shoppe/tax_rate:
         one: Tax Rate
         other: Tax Rates
+      shoppe/promo_code:
+        one: Promo Code
+        other: Promo Codes
       shoppe/user:
         one: User
         other: Users
@@ -606,6 +609,20 @@ en:
       tax_rates: Tax Rates
       update_notice: Tax rate has been updated successfully
 
+    promo_codes:
+      back_to_promo_codes: Back to promo codes
+      create_notice: Promo code has been created successfully
+      delete_confirmation: Are you sure you wish to remove this promo code?
+      destroy_notice: Promo code has been removed successfully
+      name: Name
+      new_promo_code: New promo code
+      promo_code: Promo Code
+      percentage_discount: Percentage
+      promo_codes: Promo Codes
+      expired_date: Expiry Date
+      status: Status
+      update_notice: Promo code has been updated successfully
+
     users:
       back_to_users: Back to users
       create_notice: User has been created successfully
@@ -737,6 +754,7 @@ en:
         users: Users
         countries: Countries
         settings: Settings
+        promo_codes: Promo Codes
 
     settings:
 
