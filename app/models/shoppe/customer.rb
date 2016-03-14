@@ -11,6 +11,8 @@ module Shoppe
 
     has_many :car_details, dependent: :restrict_with_exception, class_name: "Shoppe::CarDetail"
 
+    has_many :car_details, dependent: :restrict_with_exception, class_name: "Shoppe::CarDetail"
+
     # Validations
     validates :email, presence: true, uniqueness: true, format: { with: EMAIL_REGEX}
     #validates :phone, presence: true, format: { with: PHONE_REGEX }
