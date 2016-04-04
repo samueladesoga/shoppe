@@ -8,7 +8,6 @@ module Shoppe
     # Payments which have been stored for the order
     has_many :payments, dependent: :destroy, class_name: 'Shoppe::Payment'
 
-
     # The name for billing purposes
     #
     # @return [String]
