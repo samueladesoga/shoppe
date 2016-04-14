@@ -28,6 +28,14 @@
           %td.money= number_to_currency @order.delivery_price
           %td.money= number_to_currency @order.delivery_tax_amount
           %td.money= number_to_currency @order.delivery_price + @order.delivery_tax_amount
+        %tr
+          %td.qty
+          %td.product Promo Discount
+          %td.sku
+          %td.money
+          %td.money= number_to_currency @order.discount
+          %td.money
+          %td.money= number_to_currency @order.discount
       %tfoot
         %tr
           %td.qty= @order.total_items
