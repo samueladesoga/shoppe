@@ -10,6 +10,7 @@
           %th= t('shoppe.orders.amount')
           %th= t('shoppe.orders.refunded?')
           %th
+          %th
       %tbody
         - for payment in @payments
           %tr
@@ -33,5 +34,8 @@
                 = link_to t('shoppe.orders.refund'), [:refund, @order, payment], :class => 'button purple button-mini', :rel => 'dialog'
               - else
                 = link_to t('shoppe.delete'), [@order, payment], :class => 'button purple button-mini', :data => {:confirm => t('shoppe.orders.payment_remove_confirmation') }, :method => :delete
+            %td
+              - if (payment.method == 'Interswitch Payment')
+                = link_to 'Query Interswitch', [:requery_transaction, @order, payment], :class => 'button purple button-mini'
 - else
   %p.notice= t('shoppe.orders.no_payments')

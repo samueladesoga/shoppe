@@ -30,6 +30,7 @@ Shoppe::Engine.routes.draw do
     end
     resources :payments, only: [:create, :destroy] do
       match :refund, on: :member, via: [:get, :post]
+      match :requery_transaction, on: :member, via: [:get]
     end
   end
   resources :stock_level_adjustments, only: [:index, :create]
