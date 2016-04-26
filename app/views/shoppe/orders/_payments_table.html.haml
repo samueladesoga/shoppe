@@ -7,6 +7,10 @@
           %th= t('shoppe.orders.type')
           %th= t('shoppe.orders.method')
           %th= t('shoppe.orders.reference')
+          %th= 'Interswitch Reference'
+          %th= 'Response Code'
+          %th= 'Response Description'
+          %th= 'Payment DateTime'
           %th= t('shoppe.orders.amount')
           %th= t('shoppe.orders.refunded?')
           %th
@@ -20,6 +24,10 @@
               %span.float-right= boolean_tag payment.confirmed?
             %td= payment.method
             %td= link_to_if payment.transaction_url, payment.reference, payment.transaction_url
+            %td= payment.interswitch_reference
+            %td= payment.response_code
+            %td= payment.response_description
+            %td= payment.payment_datetime
 
             - if payment.refund?
               %td{:colspan => 2}
