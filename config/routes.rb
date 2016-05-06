@@ -33,6 +33,11 @@ Shoppe::Engine.routes.draw do
       match :requery_transaction, on: :member, via: [:get]
     end
   end
+  resources :payments, only: [:index] do
+    collection do
+      post :search
+    end
+  end
   resources :stock_level_adjustments, only: [:index, :create]
   resources :delivery_services do
     resources :delivery_service_prices

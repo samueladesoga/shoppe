@@ -22,6 +22,8 @@ module Shoppe
     # Payments can have associated properties
     key_value_store :properties
 
+    scope :ordered, -> { order(order_id: :desc) }
+
     # Callbacks
     after_create :cache_amount_paid
     after_destroy :cache_amount_paid

@@ -1,0 +1,46 @@
+- @page_title = 'Payments'
+
+= content_for :header do
+  %p.buttons
+    = link_to 'Search Payments', '#', :class => 'button', :rel => 'searchPayments'
+  %h2.orders
+    = 'Payments'
+    %span= page_entries_info @payments
+
+= render 'search_form'
+
+.table
+  %table.data
+    %thead
+      %tr
+        %th= 'Order ID'
+        %th= 'UPA Reference'
+        %th= 'Payment Method'
+        %th= 'Amount Paid'
+        %th= 'Amount Refunded'
+        %th= 'Int. Reference'
+        %th= 'Int. Response Code'
+        %th= 'Int. Response Desc'
+        %th= 'Payment Date'
+        %th= 'Interswitch Query'
+    %tbody
+      - if @payments.empty?
+        %tr.empty
+          %td{:colspan => 6}= 'No payments were found'
+      - else
+        - for payment in @payments
+          %tr
+            %td= link_to payment.order_id, payment.order
+            %td= payment.reference
+            %td= payment.method
+            %td= payment.amount
+            %td= payment.amount_refunded
+            %td= payment.interswitch_reference
+            %td= payment.response_code
+            %td= payment.response_description
+            %td= payment.payment_datetime
+            %td
+              - if (payment.method == 'Interswitch Payment')
+                = link_to 'Query Interswitch', [:requery_transaction, payment.order, payment], :class => 'button purple button-mini'
+
+= paginate @payments

@@ -1,3 +1,3 @@
 module Shoppe
-  VERSION = "1.1.15"
+  VERSION = "1.1.17"
 end

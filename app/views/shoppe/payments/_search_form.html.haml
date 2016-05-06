@@ -1,0 +1,21 @@
+.paymentSearch{:style => action_name == 'search' ? "display:block" : ''}
+  = search_form_for @query, :url => search_payments_path, :html => { :method => :post } do |f|
+    %dl.left
+      %dt= f.label :order_id_eq, 'Order Number'
+      %dd= f.text_field :order_id_eq      
+      %dt= f.label :reference_eq, 'UPA Reference'
+      %dd= f.text_field :reference_eq      
+      %dt= f.label :interswitch_reference_eq, 'Interswitch Reference'
+      %dd= f.text_field :interswitch_reference_eq
+      %dt= f.label :payment_datetime_eq, 'Payment Received'
+      %dd
+        = f.text_field :payment_datetime_gteq, :class => 'small'
+        &rarr;
+        = f.text_field :payment_datetime_lteq, :class => 'small'
+    %dl.right
+      %dt= f.label :response_code_cont, 'Response Code'
+      %dd= f.text_field :response_code_cont      
+      %dt= f.label :response_description_cont, 'Response Description'
+      %dd= f.text_field :response_description_cont
+      %dt= f.label :status_eq, t('shoppe.orders.status')
+      %dd= f.submit  'Search Payment', :class => 'button green button'

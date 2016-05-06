@@ -1,7 +1,17 @@
 module Shoppe
   class PaymentsController < ApplicationController
-    before_filter { @order = Shoppe::Order.find(params[:order_id]) }
+    before_filter :except => [:index, :search] { @order = Shoppe::Order.find(params[:order_id]) }
     before_filter { params[:id] && @payment = @order.payments.find(params[:id]) }
+
+    def index
+      @query = Shoppe::Payment.ordered.page(params[:page]).search(params[:q])
+      @payments = @query.result
+    end
+
+    def search
+      index
+      render action: 'index'
+    end
 
     def create
       payment = @order.payments.build(params[:payment].permit(:amount, :method, :reference))
