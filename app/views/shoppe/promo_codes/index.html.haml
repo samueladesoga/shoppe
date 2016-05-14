@@ -8,6 +8,7 @@
   %table.data
     %thead
       %tr
+        %th= 'ID'
         %th= t('shoppe.promo_codes.name')
         %th= t('shoppe.promo_codes.promo_code')
         %th= t('shoppe.promo_codes.percentage_discount')
@@ -16,6 +17,7 @@
     %tbody
       - for promo_code in @promo_codes
         %tr
+          %td= promo_code.id
           %td= link_to promo_code.name, [:edit, promo_code]
           %td= promo_code.promo_code
           %td= promo_code.percentage_discount
