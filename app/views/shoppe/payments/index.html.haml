@@ -32,7 +32,7 @@
         - for payment in @payments
           %tr
             %td= link_to payment.order_id, payment.order
-            %td= link_to payment.order.customer.id, payment.order.customer
+            %td= payment.try(:order).try(:customer).nil? ? "-" : link_to(payment.order.customer.id, payment.order.customer)
             %td= payment.reference
             %td= payment.method
             %td= payment.amount
