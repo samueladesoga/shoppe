@@ -2,7 +2,10 @@ module Shoppe
   class OrderMailer < ActionMailer::Base
     def received(order)
       @order = order
-      mail from: Shoppe.settings.outbound_email_address, to: order.email_address, subject: I18n.t('shoppe.order_mailer.received.subject', default: 'Order Confirmation')
+      mail from: Shoppe.settings.outbound_email_address,
+          bcc: ["#{Shoppe.settings.outbound_email_address}", "Order Watcher <#{Shoppe.settings.outbound_email_address}>"], 
+          to: order.email_address, 
+          subject: I18n.t('shoppe.order_mailer.received.subject', default: 'Order Confirmation')
     end
 
     def accepted(order)
