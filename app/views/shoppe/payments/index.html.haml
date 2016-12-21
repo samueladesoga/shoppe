@@ -42,7 +42,7 @@
             %td= payment.response_description
             %td= payment.payment_datetime
             %td
-              - if (payment.method == 'Interswitch Payment')
+              - if ((payment.method == 'Interswitch Payment') && (payment.response_code != "00"))
                 = link_to 'Query Interswitch', [:requery_transaction, payment.order, payment], :class => 'button purple button-mini'
 
 = paginate @payments
